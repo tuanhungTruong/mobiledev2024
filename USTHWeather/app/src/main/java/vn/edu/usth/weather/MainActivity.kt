@@ -15,23 +15,46 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import vn.edu.usth.weather.ui.theme.UsthWeatherTheme
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+class WeatherActivity : AppCompatActivity() {
+    @Override
+    protected fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            UsthWeatherTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MainScreen(
-                        modifier = Modifier.padding(innerPadding),
-                        onWeatherButtonClick = {
-                            val intent = Intent(this, WeatherActivity::class.java)
-                            startActivity(intent)
-                        }
-                    )
-                }
-            }
-        }
+        setContentView(R.layout.activity_weather)
+        Log.i(TAG, "onCreate() called")
+    }
+
+    @Override
+    protected fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart() called")
+    }
+
+    @Override
+    protected fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume() called")
+    }
+
+    @Override
+    protected fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause() called")
+    }
+
+    @Override
+    protected fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop() called")
+    }
+
+    @Override
+    protected fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy() called")
+    }
+
+    companion object {
+        private const val TAG = "WeatherActivity"
     }
 }
 
